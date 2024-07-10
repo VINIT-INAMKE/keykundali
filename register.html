@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration - Student Management Portal</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/admissionform.css" />
+    <link
+      href="https://unpkg.com/filepond@4.30.0/dist/filepond.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <link
+      href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <div class="nav__data">
+          <a href="index.html" class="nav__logo">
+            <i class="ri-planet-line"></i> KSE
+          </a>
+
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line nav__burger"></i>
+            <i class="ri-close-line nav__close"></i>
+          </div>
+        </div>
+
+        <!--=============== NAV MENU ===============-->
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li>
+              <a href="login.html" class="nav__link" id="loginLink">Login</a>
+            </li>
+            <li>
+              <a href="register.html" class="nav__link" id="registerLink"
+                >Register</a
+              >
+            </li>
+            <li class="profile-menu dropdown__item" style="display: none">
+              <div class="nav__link" id="userProfile">
+                <img
+                  id="profilePicture"
+                  src="#"
+                  alt=""
+                  class="nav-profile-picture"
+                />
+                <span id="uname">User</span>
+                <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </div>
+              <ul class="dropdown__menu" id="dropdownMenu">
+                <li>
+                  <a href="profile.html" class="dropdown__link">
+                    <i class="ri-user-line"></i> Profile
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="dropdown__link" id="logout">
+                    <i class="ri-lock-line"></i> Logout
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="mainfecont">
+      <div class="feform-container">
+        <form id="admissionForm">
+          <h2>Admission Form for First Year Engineering</h2>
+
+          <label for="email">Email-Id:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+          <div class="profile-picture-container">
+            <input
+              type="file"
+              id="filePondCandidatePhoto"
+              name="filePondCandidatePhoto"
+              accept="image/*"
+              required
+            />
+            <label for="filePondCandidatePhoto">Candidate Photo:</label>
+          </div>
+          <label for="branch">Course in Engineering (Branch):</label>
+          <input type="text" id="branch" name="branch" required />
+
+          <label for="surname">Surname:</label>
+          <input type="text" id="surname" name="surname" required />
+
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" required />
+
+          <label for="middleName">Middle Name:</label>
+          <input type="text" id="middleName" name="middleName" required />
+
+          <label for="mobile">Student's Mobile Number:</label>
+          <input type="tel" id="mobile" name="mobile" required />
+
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" name="dob" required />
+
+          <label for="sex">Sex (Male/Female):</label>
+          <select id="sex" name="sex" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+
+          <label for="bloodGroup">Blood Group:</label>
+          <input type="text" id="bloodGroup" name="bloodGroup" required />
+
+          <label for="religion">Religion:</label>
+          <input type="text" id="religion" name="religion" required />
+
+          <label for="category">Category:</label>
+          <input type="text" id="category" name="category" required />
+
+          <label for="caste">Caste:</label>
+          <input type="text" id="caste" name="caste" required />
+
+          <label for="aadhaar">Aadhaar Card No.:</label>
+          <input type="text" id="aadhaar" name="aadhaar" required />
+
+          <label for="income">Annual Income (Parents):</label>
+          <input type="number" id="income" name="income" required />
+
+          <label for="hscSeatNo">HSC Seat No:</label>
+          <input type="number" id="hscSeatNo" name="hscSeatNo" />
+
+          <label for="hscPhyMarks">HSC Physics Marks:</label>
+          <input type="number" id="hscPhyMarks" name="hscPhyMarks" />
+
+          <label for="hscChemMarks">HSC Chemistry Marks:</label>
+          <input type="number" id="hscChemMarks" name="hscChemMarks" />
+
+          <label for="hscMathsMarks">HSC Mathematics Marks:</label>
+          <input type="number" id="hscMathsMarks" name="hscMathsMarks" />
+
+          <label for="hscTotalMarks">HSC Total Marks:</label>
+          <input type="number" id="hscTotalMarks" name="hscTotalMarks" />
+
+          <label for="cetSeatNo">CET Seat No:</label>
+          <input type="number" id="cetSeatNo" name="cetSeatNo" />
+
+          <label for="cetPhyMarks">CET Physics Marks:</label>
+          <input type="number" id="cetPhyMarks" name="cetPhyMarks" />
+
+          <label for="cetChemMarks">CET Chemistry Marks:</label>
+          <input type="number" id="cetChemMarks" name="cetChemMarks" />
+
+          <label for="cetMathsMarks">CET Mathematics Marks:</label>
+          <input type="number" id="cetMathsMarks" name="cetMathsMarks" />
+
+          <label for="cetTotalMarks">CET Total Marks:</label>
+          <input type="number" id="cetTotalMarks" name="cetTotalMarks" />
+
+          <label for="jeeSeatNo">JEE Seat No:</label>
+          <input type="number" id="jeeSeatNo" name="jeeSeatNo" />
+
+          <label for="jeePhyMarks">JEE Physics Marks:</label>
+          <input type="number" id="jeePhyMarks" name="jeePhyMarks" />
+
+          <label for="jeeChemMarks">JEE Chemistry Marks:</label>
+          <input type="number" id="jeeChemMarks" name="jeeChemMarks" />
+
+          <label for="jeeMathsMarks">JEE Mathematics Marks:</label>
+          <input type="number" id="jeeMathsMarks" name="jeeMathsMarks" />
+
+          <label for="jeeTotalMarks">JEE Total Marks:</label>
+          <input type="number" id="jeeTotalMarks" name="jeeTotalMarks" />
+
+          <label for="motherName">Mother's Name:</label>
+          <input type="text" id="motherName" name="motherName" required />
+
+          <label for="motherOccupation">Mother's Occupation:</label>
+          <input
+            type="text"
+            id="motherOccupation"
+            name="motherOccupation"
+            required
+          />
+
+          <label for="motherMobile">Mother's Mobile Number:</label>
+          <input type="tel" id="motherMobile" name="motherMobile" required />
+
+          <label for="fatherName">Father's Full Name:</label>
+          <input type="text" id="fatherName" name="fatherName" required />
+
+          <label for="fatherOccupation">Father's Occupation:</label>
+          <input
+            type="text"
+            id="fatherOccupation"
+            name="fatherOccupation"
+            required
+          />
+
+          <label for="fatherMobile">Father's Mobile Number:</label>
+          <input type="tel" id="fatherMobile" name="fatherMobile" required />
+
+          <label for="permanentAddress">Parents' Permanent Address:</label>
+          <textarea
+            id="permanentAddress"
+            name="permanentAddress"
+            required
+          ></textarea>
+
+          <label for="permanentPin">Pin:</label>
+          <input type="text" id="permanentPin" name="permanentPin" required />
+
+          <label for="guardianName">Local Guardian Name:</label>
+          <input type="text" id="guardianName" name="guardianName" />
+
+          <label for="localAddress">Local Address:</label>
+          <textarea id="localAddress" name="localAddress"></textarea>
+
+          <label for="localPin">Pin:</label>
+          <input type="text" id="localPin" name="localPin" />
+
+          <label for="guardianOccupation">Guardian's Occupation:</label>
+          <input
+            type="text"
+            id="guardianOccupation"
+            name="guardianOccupation"
+          />
+
+          <label for="guardianMobile">Guardian's Mobile Number:</label>
+          <input type="tel" id="guardianMobile" name="guardianMobile" />
+
+          <label for="passingYear"
+            >Month and Year of Passing from Last Institute:</label
+          >
+          <input type="date" id="passingYear" name="passingYear" required />
+
+          <label for="instNameAdd">Name and Address of Institution:</label>
+          <textarea id="instNameAdd" name="instNameAdd" required></textarea>
+
+          <label for="passMah">Whether Passed From Maharashtra:</label>
+          <select id="passMah" name="passMah" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+
+          <label for="filePondArcLetter">ARC. Letter:</label>
+          <input
+            type="file"
+            id="filePondArcLetter"
+            name="filePondArcLetter"
+            class="filepond"
+            required
+          />
+
+          <label for="filePondCetScoreCard">CET Score Card:</label>
+          <input
+            type="file"
+            id="filePondCetScoreCard"
+            name="filePondCetScoreCard"
+            class="filepond"
+            required
+          />
+
+          <label for="filePondJeeScoreCard">JEE Score Card:</label>
+          <input
+            type="file"
+            id="filePondJeeScoreCard"
+            name="filePondJeeScoreCard"
+            class="filepond"
+            required
+          />
+
+          <label for="filePondSscMarkList">SSC Mark List:</label>
+          <input
+            type="file"
+            id="filePondSscMarkList"
+            name="filePondSscMarkList"
+            class="filepond"
+            required
+          />
+
+          <label for="filePondHscMarkList">HSC Mark List:</label>
+          <input
+            type="file"
+            id="filePondHscMarkList"
+            name="filePondHscMarkList"
+            class="filepond"
+            required
+          />
+
+          <label for="filePondTransferCertificate"
+            >Leaving / Transfer Certificate:</label
+          >
+          <input
+            type="file"
+            id="filePondTransferCertificate"
+            name="filePondTransferCertificate"
+            class="filepond"
+            required
+          />
+
+          <label for="filePondDomicileCertificate"
+            >Domicile & Nationality/Birth Certificate:</label
+          >
+          <input
+            type="file"
+            id="filePondDomicileCertificate"
+            name="filePondDomicileCertificate"
+            class="filepond"
+            required
+          />
+
+          <label for="filePondIncomeCertificate">Income Certificate:</label>
+          <input
+            type="file"
+            id="filePondIncomeCertificate"
+            name="filePondIncomeCertificate"
+            class="filepond"
+            required
+          />
+
+          <label for="filePondEwsCertificate">EWS Certificate:</label>
+          <input
+            type="file"
+            id="filePondEwsCertificate"
+            name="filePondEwsCertificate"
+            class="filepond"
+          />
+
+          <label for="filePondGapCertificate"
+            >Gap Certificate (If applicable):</label
+          >
+          <input
+            type="file"
+            id="filePondGapCertificate"
+            name="filePondGapCertificate"
+            class="filepond"
+          />
+
+          <label for="filePondAadhaarXerox">Aadhaar Card (Xerox):</label>
+          <input
+            type="file"
+            id="filePondAadhaarXerox"
+            name="filePondAadhaarXerox"
+            class="filepond"
+            required
+          />
+
+          <label for="reservedCategory"
+            >Are you a reserved category candidate?</label
+          >
+          <select id="reservedCategory" name="reservedCategory">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+          </select>
+
+          <div id="reservedCategoryFiles" class="hidden">
+            <h3>Reserve Category Candidates</h3>
+
+            <label for="filePondCasteCertificate">Caste Certificate:</label>
+            <input
+              type="file"
+              id="filePondCasteCertificate"
+              name="filePondCasteCertificate"
+              class="filepond"
+            />
+
+            <label for="filePondCasteValidityCertificate"
+              >Caste Validity Certificate:</label
+            >
+            <input
+              type="file"
+              id="filePondCasteValidityCertificate"
+              name="filePondCasteValidityCertificate"
+              class="filepond"
+            />
+
+            <label for="filePondNonCreamyLayerCertificate"
+              >Non - Creamy Layer Certificate:</label
+            >
+            <input
+              type="file"
+              id="filePondNonCreamyLayerCertificate"
+              name="filePondNonCreamyLayerCertificate"
+              class="filepond"
+            />
+          </div>
+
+          <label for="declaration">DECLARATION BY THE STUDENT</label>
+          <ul>
+            <li>
+              I do hereby solemnly state that I have carefully read the Rules
+              and Regulations stipulated by the college and I agree to abide by
+              them.
+            </li>
+            <li>
+              In case if I violate any rule of conduct, discipline, attendance
+              etc., I understand that I am liable for action that will taken by
+              the college.
+            </li>
+            <li>
+              My admission shall be cancelled if I fail to fulfill my attendance
+              above 75%.
+            </li>
+            <li>
+              I will pay college fees of all the years in case, I discontinue my
+              study in the middle of the course.
+            </li>
+            <li>
+              In case, if I fail to submit the documents related to sanction of
+              EBC / Scholarship / Free ship I will pay the college fees as
+              admission in open category.
+            </li>
+            <li>
+              In case of any misbehavior on my part, the Principal/Correspondent
+              may cancel my admission without any prior intimation.
+            </li>
+          </ul>
+          <h4>
+            <u
+              >By submitting the form I do hereby agree to the declaration
+              above</u
+            >
+          </h4>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script src="https://unpkg.com/filepond@4.30.0/dist/filepond.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script src="scripts/header.js"></script>
+    <script src="scripts/scripts.js"></script>
+  </body>
+</html>

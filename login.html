@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Student Management Portal</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/admissionform.css" />
+    <link
+      href="https://unpkg.com/filepond@4.30.0/dist/filepond.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <link
+      href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav container">
+        <div class="nav__data">
+          <a href="index.html" class="nav__logo">
+            <i class="ri-planet-line"></i> KSE
+          </a>
+
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line nav__burger"></i>
+            <i class="ri-close-line nav__close"></i>
+          </div>
+        </div>
+
+        <!--=============== NAV MENU ===============-->
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li>
+              <a href="login.html" class="nav__link" id="loginLink">Login</a>
+            </li>
+            <li>
+              <a href="register.html" class="nav__link" id="registerLink"
+                >Register</a
+              >
+            </li>
+            <li class="profile-menu dropdown__item" style="display: none">
+              <div class="nav__link" id="userProfile">
+                <img
+                  id="profilePicture"
+                  src="#"
+                  alt=""
+                  class="nav-profile-picture"
+                />
+                <span id="uname">User</span>
+                <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </div>
+              <ul class="dropdown__menu" id="dropdownMenu">
+                <li>
+                  <a href="profile.html" class="dropdown__link">
+                    <i class="ri-user-line"></i> Profile
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="dropdown__link" id="logout">
+                    <i class="ri-lock-line"></i> Logout
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- <header><nav>
+        <ul id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li class="profile-menu">
+            <img id="profilePicture" src="" alt="Profile" class="profile-img" />
+            <div class="dropdown-content">
+              <a href="profile.html">Profile</a>
+              <a href="#" id="logout">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>  </header>-->
+
+    <div class="mainfecont">
+      <div class="feform-container">
+        <form id="loginForm">
+          <h2>Login</h2>
+
+          <label for="email">Email-Id:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script src="https://unpkg.com/filepond@4.30.0/dist/filepond.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script src="scripts/header.js"></script>
+    <script src="scripts/scripts.js"></script>
+  </body>
+</html>
