@@ -289,198 +289,238 @@ document.addEventListener("DOMContentLoaded", function () {
               <label class="form-label">First Name:</label>
               <input
                 type="text"
-                class="form-control mb-1"
+                class="form-control mb-1" disabled
                 value="${data.firstName} "
               />
             </div>
             <div class="form-group">
-              <label class="form-label">Last Name:</label>
-              <input type="text" class="form-control" value="${data.surname}" />
+              <label class="form-label">Last Name:</label> <input
+                 type="text"
+                class="form-control"
+                disabled value="${data.surname}" />
             </div>
             <div class="form-group">
               <label class="form-label">E-mail:</label>
               <input
                 type="text"
                 class="form-control mb-1"
+                disabled
+
                 value="${data.email}"
               />
             </div>
             <div class="form-group">
-              <label class="form-label">Branch:</label>
-              <input type="text" class="form-control" value="${data.branch}" />
+              <label class="form-label">Branch:</label> <input
+                 type="text"
+                class="form-control"
+                disabled value="${data.branch}" />
             </div>
             <div class="form-group">
-              <label class="form-label">Mobile:</label>
-              <input type="text" class="form-control" value="${data.mobile}" />
+              <label class="form-label">Mobile:</label> <input
+                 type="text"
+                class="form-control"
+                disabled value="${data.mobile}" />
             </div>
             <div class="form-group">
-              <label class="form-label">Date of Birth:</label>
-              <input type="text" class="form-control" value="${data.dob}" />
+              <label class="form-label">Date of Birth:</label> <input
+                 type="text"
+                class="form-control"
+                disabled value="${data.dob}" />
             </div>
             <div class="form-group">
-              <label class="form-label">Sex:</label>
-              <input type="text" class="form-control" value="${data.sex}" />
+              <label class="form-label">Sex:</label> <input
+                 type="text"
+                class="form-control"
+                disabled value="${data.sex}" />
             </div>
 
             <div class="form-group">
               <label class="form-label">Blood Group:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.bloodGroup}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Religion:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.religion}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Category:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.category}"
               />
             </div>
             <div class="form-group">
-              <label class="form-label">Caste:</label>
-              <input type="text" class="form-control" value="${data.caste}" />
+              <label class="form-label">Caste:</label> <input
+                 type="text"
+                class="form-control"
+                disabled value="${data.caste}" />
             </div>
             <div class="form-group">
-              <label class="form-label">Aadhaar:</label>
-              <input type="text" class="form-control" value="${data.aadhaar}" />
+              <label class="form-label">Aadhaar:</label> <input
+                 type="text"
+                class="form-control"
+                disabled value="${data.aadhaar}" />
             </div>
             <div class="form-group">
-              <label class="form-label">Annual Income:</label>
-              <input type="text" class="form-control" value="${data.income}" />
+              <label class="form-label">Annual Income:</label> <input
+                 type="text"
+                class="form-control"
+                disabled value="${data.income}" />
             </div>
             <div class="form-group">
               <label class="form-label">Mother's Name:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.motherName}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Mother's Occupation:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.motherOccupation}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Mother's Mobile:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.motherMobile}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Father's Name:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.fatherName}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Father's Occupation:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.fatherOccupation}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Father's Mobile:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.fatherMobile}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Permanent Address:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.permanentAddress}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Permanent Pin:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.permanentPin}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Guardian's Name:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.guardianName}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Local Address:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.localAddress}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Local Pin:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.localPin}"
+
               />
             </div>
             <div class="form-group">
               <label class="form-label">Guardian's Occupation:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.guardianOccupation}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Guardian's Mobile:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.guardianMobile}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Month and Year of Passing:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
                 value="${data.passingYear}"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Institution Name and Address:</label>
               <input
-                type="text"
+                 type="text"
                 class="form-control"
+                disabled
+         
                 value="${data.instNameAdd}"
               />
             </div>
             <div class="form-group">
-              <label class="form-label">Passed from Maharashtra:</label>
-              <input type="text" class="form-control" value="${data.passMah}" />
+              <label class="form-label">Passed from Maharashtra:</label> <input
+                 type="text"
+                class="form-control"
+                disabled value="${data.passMah}" />
             </div>
           </div>
         </div>
