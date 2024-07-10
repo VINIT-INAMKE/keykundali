@@ -1,0 +1,74 @@
+main {
+  padding: 2em;
+  margin-top: 4rem;
+}
+
+section {
+  margin-bottom: 2em;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+#login,
+#register {
+  max-width: 400px;
+  margin: 2em auto;
+  padding: 2em;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#login h2,
+#register h2 {
+  margin-bottom: 1em;
+}
+
+#loginForm label,
+#registerForm label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+#loginForm input,
+#registerForm input,
+#registerForm select {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#loginForm button,
+#registerForm button {
+  width: 100%;
+  padding: 0.75em;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#loginForm button:hover,
+#registerForm button:hover {
+  background-color: #0056b3;
+}
+#profileInfo {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+}
