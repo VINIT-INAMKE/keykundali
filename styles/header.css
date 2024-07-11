@@ -328,3 +328,10 @@ a {
     transition: top 0.3s;
   }
 }
+.nav-profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
