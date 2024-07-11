@@ -52,9 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "filePondEwsCertificate",
     "filePondGapCertificate",
     "filePondAadhaarXerox",
-    "filePondCasteCertificate",
-    "filePondCasteValidityCertificate",
-    "filePondNonCreamyLayerCertificate",
+
     "filePondCandidatePhoto",
   ];
 
@@ -78,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var formObject = Object.fromEntries(formData.entries());
       var email = formObject.email.trim();
       var password = formObject.password.trim();
-
+      var candidateName = `${formObject.firstName}_${formObject.surname}`; // Assuming firstName and surname are fields in the form
       // Ensure password is a string
       if (typeof password !== "string" || password.length === 0) {
         Swal.fire({
@@ -103,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (file) {
               var storageRef = storage
                 .ref()
-                .child(`uploads/${userId}/${id}/${file.file.name}`);
+                .child(`uploads/${candidateName}/${id}`);
               uploadPromises.push(
                 storageRef
                   .put(file.file)
@@ -191,8 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-  showMenu("nav-toggle", "nav-menu");
-
   // Display Profile Picture and Dropdown
   firebase.auth().onAuthStateChanged((user) => {
     const navMenu = document.getElementById("nav-menu");
@@ -206,9 +202,10 @@ document.addEventListener("DOMContentLoaded", function () {
         .get()
         .then((doc) => {
           if (doc.exists) {
+            document.getElementById("uname").innerHTML = doc.data().firstName;
             document.getElementById("profilePicture").src =
               doc.data().filePondCandidatePhoto;
-            document.getElementById("uname").innerHTML = doc.data().firstName;
+
             profileMenu.style.display = "inline-block";
             loginLink.style.display = "none";
             registerLink.style.display = "none";
@@ -280,165 +277,180 @@ document.addEventListener("DOMContentLoaded", function () {
             <img
               src="${data.filePondCandidatePhoto}"
               alt="Candidate Photo"
-              class="d-block ui-w-80"
+              class="img-thumbnail profilepic"
             />
           </div>
           <hr class="border-light m-0" />
           <div class="card-body">
-            <div class="form-group">
+          <div class="form-row ">
+            <div class="form-group col-md-6">
               <label class="form-label">First Name:</label>
               <input
                 type="text"
-                class="form-control mb-1" disabled
+                class="form-control mb-1" readonly
                 value="${data.firstName} "
               />
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6">
               <label class="form-label">Last Name:</label> <input
                  type="text"
                 class="form-control"
-                disabled value="${data.surname}" />
+                readonly value="${data.surname}" />
             </div>
+          </div>
             <div class="form-group">
               <label class="form-label">E-mail:</label>
               <input
                 type="text"
                 class="form-control mb-1"
-                disabled
+                readonly
 
                 value="${data.email}"
               />
             </div>
-            <div class="form-group">
+          <div class="form-row ">
+            <div class="form-group col-md-4">
               <label class="form-label">Branch:</label> <input
                  type="text"
                 class="form-control"
-                disabled value="${data.branch}" />
+                readonly value="${data.branch}" />
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
               <label class="form-label">Mobile:</label> <input
                  type="text"
                 class="form-control"
-                disabled value="${data.mobile}" />
+                readonly value="${data.mobile}" />
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
               <label class="form-label">Date of Birth:</label> <input
                  type="text"
                 class="form-control"
-                disabled value="${data.dob}" />
+                readonly value="${data.dob}" />
             </div>
-            <div class="form-group">
+          </div> 
+          <div class="form-row ">
+            <div class="form-group col-md-5">
               <label class="form-label">Sex:</label> <input
                  type="text"
                 class="form-control"
-                disabled value="${data.sex}" />
+                readonly value="${data.sex}" />
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-md-3">
               <label class="form-label">Blood Group:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.bloodGroup}"
               />
             </div>
-            <div class="form-group">
+             <div class="form-group col-md-4">
+              <label class="form-label">Aadhaar:</label> <input
+                 type="text"
+                class="form-control"
+                readonly value="${data.aadhaar}" />
+            </div>
+          </div> 
+          <div class="form-row ">
+            <div class="form-group col-md-4">  
+        
               <label class="form-label">Religion:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.religion}"
               />
+            </div> 
+            <div class="form-group col-md-4">
+              <label class="form-label">Caste:</label> <input
+                 type="text"
+                class="form-control"
+                readonly value="${data.caste}" />
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
               <label class="form-label">Category:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.category}"
               />
             </div>
-            <div class="form-group">
-              <label class="form-label">Caste:</label> <input
-                 type="text"
-                class="form-control"
-                disabled value="${data.caste}" />
-            </div>
-            <div class="form-group">
-              <label class="form-label">Aadhaar:</label> <input
-                 type="text"
-                class="form-control"
-                disabled value="${data.aadhaar}" />
-            </div>
+          </div> 
+            
             <div class="form-group">
               <label class="form-label">Annual Income:</label> <input
                  type="text"
                 class="form-control"
-                disabled value="${data.income}" />
+                readonly value="${data.income}" />
             </div>
             <div class="form-group">
               <label class="form-label">Mother's Name:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.motherName}"
               />
             </div>
-            <div class="form-group">
+          <div class="form-row ">
+            <div class="form-group col-md-6">   
+           
               <label class="form-label">Mother's Occupation:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.motherOccupation}"
               />
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6">
               <label class="form-label">Mother's Mobile:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.motherMobile}"
               />
             </div>
+          </div>  
             <div class="form-group">
               <label class="form-label">Father's Name:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.fatherName}"
               />
             </div>
-            <div class="form-group">
+          <div class="form-row ">
+            <div class="form-group col-md-6"> 
               <label class="form-label">Father's Occupation:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.fatherOccupation}"
               />
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6">
               <label class="form-label">Father's Mobile:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.fatherMobile}"
               />
             </div>
+          </div>
             <div class="form-group">
               <label class="form-label">Permanent Address:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.permanentAddress}"
               />
             </div>
@@ -447,7 +459,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.permanentPin}"
               />
             </div>
@@ -456,7 +468,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.guardianName}"
               />
             </div>
@@ -465,7 +477,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.localAddress}"
               />
             </div>
@@ -474,53 +486,57 @@ document.addEventListener("DOMContentLoaded", function () {
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.localPin}"
 
               />
             </div>
-            <div class="form-group">
+            <div class="form-row ">
+            <div class="form-group col-md-6">
               <label class="form-label">Guardian's Occupation:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.guardianOccupation}"
               />
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6">
               <label class="form-label">Guardian's Mobile:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.guardianMobile}"
               />
-            </div>
-            <div class="form-group">
+            </div></div>
+            <div class="form-row ">
+            <div class="form-group col-md-4">
+           
               <label class="form-label">Month and Year of Passing:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
                 value="${data.passingYear}"
               />
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
               <label class="form-label">Institution Name and Address:</label>
               <input
                  type="text"
                 class="form-control"
-                disabled
+                readonly
          
                 value="${data.instNameAdd}"
               />
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-4">
               <label class="form-label">Passed from Maharashtra:</label> <input
                  type="text"
                 class="form-control"
-                disabled value="${data.passMah}" />
+                readonly value="${data.passMah}" />
+            </div>
             </div>
           </div>
         </div>
